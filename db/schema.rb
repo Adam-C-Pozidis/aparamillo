@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_114055) do
+ActiveRecord::Schema.define(version: 2020_04_07_111306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2020_04_06_114055) do
     t.float "price"
     t.boolean "completed", default: false
     t.date "pick_up_date"
-    t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["color_id"], name: "index_cloths_on_color_id"

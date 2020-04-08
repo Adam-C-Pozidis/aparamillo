@@ -1,2 +1,7 @@
-<h1>Cloths#index</h1>
-<p>Find me in app/views/cloths/index.html.erb</p>
+<% unless @cloths.empty? %>
+  <% @cloths.each do |cloth| %>
+    <h2><%= cloth.type.name %></h2>
+  <% end %>
+<% else %>
+  <h2>Δεν υπάρχουν ρούχα αυτή τη στιγμή</h2>
+<% end %>
