@@ -7,12 +7,19 @@ class ClothsController < ApplicationController
   end
 
   def show
+    authorize(@cloth)
   end
 
   def new
+    @cloth = Cloth.new
+    authorize(@cloth)
   end
 
   def create
+    @cloth = Cloth.new(cloth_params)
+    authorize(@cloth)
+    @cloth.save!
+    redirect_to cloth_path(@cloth)
   end
 
   def edit
@@ -25,11 +32,13 @@ class ClothsController < ApplicationController
   end
 
   private
+
   def set_cloth
     @cloth = Cloth.find(params[:id])
   end
 
   def cloth_params
-    params.require(:cloth).permit(:category, :wash_type, :price, :pick_up_date)
+    params.require(:cloth).permit(:user_id, :type_id, :color_id, :shelf_id, :category,
+    :wash_type, :delivery, :completed, :pick_up_date, :price)
   end
 end

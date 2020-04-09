@@ -1,0 +1,32 @@
+<%= simple_form_for @cloth do |f| %>
+  <div class="d-flex flex-column">
+    <%= f.label "Πελάτης"%>
+    <%= f.association :user, label: false %>
+    <%= f.label "Είδος" %>
+    <%= f.association :type, label: false %>
+    <%= f.label "Χρώμα" %>
+    <%= f.association :color, label: false %>
+    <%= f.label "Ράφι" %>
+    <%= f.association :shelf, label: false %>
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <%= f.input :category, collection: ["Ανδρικό", "Γυναικείο", "Παιδικό"], label: "Κατηγορία"%> <br><br>
+    <%= f.input :wash_type, collection: ["Στεγνό καθάρισμα", "Υγρό καθάρισμα", "Σιδέρωμα"], label: "Τρόπος καθαρίσματος" %>
+  </div>
+
+  <div class="d-flex" %>
+    <%= f.input :delivery, as: :boolean, checked_value: true, unchecked_value: false, :label_html => { :class => 'checkbox-inline' }, label: "Παράδοση" %>
+    <%# <%= f.input :completed, as: :boolean, checked_value: true, unchecked_value: false, :label_html => { :class => 'checkbox-inline' }, label: "Έτοιμο" %>
+  </div>
+
+  <%= f.input :pick_up_date, as: :date, label: "Ημερομηνία παράδωσης"%>
+
+  <%= f.label "Κόστος" %>
+  <%= f.input_field :price %>
+
+
+  <div class="d-flex mt-4">
+    <%= f.button :submit, "Δημιουργία ρούχου", class: "btn btn-primary" %>
+  </div>
+<% end %>
