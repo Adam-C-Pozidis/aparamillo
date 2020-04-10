@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :cloths
   resources :shelves, :colors, :types, except: :show
+  get '/managments', to: 'managments#shop', as: 'managments'
+  get '/managments/main', to: 'managments#main', as: 'managment_main'
 end
