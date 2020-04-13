@@ -12,5 +12,4 @@ class ManagmentsController < ApplicationController
   def main
     authorize :managment, :main?
   end
-
 end

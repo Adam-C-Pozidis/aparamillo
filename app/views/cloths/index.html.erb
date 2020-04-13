@@ -1,6 +1,7 @@
 <% unless @cloths.empty? %>
   <% @cloths.each do |cloth| %>
-    <h2><%= cloth.type.name %></h2>
+    <%=cloth.user.email %>
+    <h3><%= cloth.type.name %></h3>
   <% end %>
 <% else %>
   <h2>Δεν υπάρχουν ρούχα αυτή τη στιγμή</h2>

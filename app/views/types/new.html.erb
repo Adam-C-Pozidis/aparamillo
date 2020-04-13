@@ -1,0 +1,5 @@
+<%= simple_form_for @type do |f| %>
+  <%= f.label "Νέος τύπος ρούχου" %>
+  <%= f.input_field :name %>
+  <%= f.button :submit, "Δημιουργία νέου τύπου", class: "btn btn-primary" %>
+<% end %>

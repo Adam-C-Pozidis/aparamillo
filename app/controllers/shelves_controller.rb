@@ -1,12 +1,17 @@
 class ShelvesController < ApplicationController
 
+  def new
+    @shelf = Shelf.new
+    authorize(@shelf)
+  end
+
   def create
-    @shelf = Shelf.new(self_params)
+    @shelf = Shelf.new(shelf_params)
     authorize(@shelf)
     if @shelf.save
       redirect_to managments_path
     else
-      render "managments/show"
+      render "managments/main"
     end
   end
 
@@ -19,7 +24,7 @@ class ShelvesController < ApplicationController
 
   private
 
-  def self_params
+  def shelf_params
     params.require(:shelf).permit(:name)
   end
 end

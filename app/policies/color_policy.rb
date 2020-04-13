@@ -5,12 +5,20 @@ class ColorPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    true
+  end
+
   def index?
     record.user == user
   end
-  
+
   def shop?
-    true
+    new?
+  end
+
+  def create?
+    new?
   end
 
 end

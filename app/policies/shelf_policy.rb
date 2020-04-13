@@ -1,14 +1,24 @@
-class ShelfPolicy < ApplicationPolicy
+class ColorPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
-  def index?
+
+  def new?
     true
   end
 
-  def shop?
-    true
+  def index?
+    record.user == user
   end
+
+  def shop?
+    new?
+  end
+
+  def create?
+    new?
+  end
+
 end
