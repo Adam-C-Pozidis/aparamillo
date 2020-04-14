@@ -8,7 +8,7 @@ class TypesController < ApplicationController
     @type = Type.new(type_params)
     authorize(@type)
     if @type.save
-      redirect_to managments_path
+      redirect_to managment_main_path
     else
       render "managments/main"
     end

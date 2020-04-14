@@ -1,4 +1,5 @@
 class ManagmentPolicy < Struct.new(:user, :managment)
+
   def main?
     true
   end

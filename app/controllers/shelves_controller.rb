@@ -9,7 +9,7 @@ class ShelvesController < ApplicationController
     @shelf = Shelf.new(shelf_params)
     authorize(@shelf)
     if @shelf.save
-      redirect_to managments_path
+      redirect_to managment_main_path
     else
       render "managments/main"
     end

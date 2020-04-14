@@ -9,9 +9,9 @@ class ColorsController < ApplicationController
     @color = Color.new(color_params)
     authorize(@color)
     if @color.save
-      redirect_to managments_path
+      redirect_to managment_main_path
     else
-      render "managments/main"
+      render "colors/new"
     end
   end
 
