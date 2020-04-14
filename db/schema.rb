@@ -10,46 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_114513) do
+ActiveRecord::Schema.define(version: 2020_04_14_110208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cloths", force: :cascade do |t|
-    t.bigint "type_id", null: false
-    t.bigint "color_id", null: false
-    t.bigint "user_id", null: false
-    t.bigint "shelf_id", null: false
-    t.string "category", default: ["Ανδρικό", "Γυναικείο", "Παιδικό"], array: true
-    t.string "wash_type", default: ["Στεγνό καθάρισμα", "Υγρό καθάρισμα", "Σιδέρωμα"], array: true
-    t.boolean "delivery", default: false
-    t.float "price"
-    t.boolean "completed", default: false
+    t.string "category"
+    t.string "wash_type"
+    t.boolean "delivery"
+    t.boolean "completed"
     t.date "pick_up_date"
+    t.float "price"
+    t.bigint "shelf_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["color_id"], name: "index_cloths_on_color_id"
     t.index ["shelf_id"], name: "index_cloths_on_shelf_id"
-    t.index ["type_id"], name: "index_cloths_on_type_id"
-    t.index ["user_id"], name: "index_cloths_on_user_id"
   end
 
   create_table "colors", force: :cascade do |t|
     t.string "name"
+    t.bigint "cloth_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cloth_id"], name: "index_colors_on_cloth_id"
   end
 
   create_table "shelves", force: :cascade do |t|
     t.string "name"
+    t.bigint "shop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_shelves_on_shop_id"
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_shops_on_user_id"
   end
 
   create_table "types", force: :cascade do |t|
     t.string "name"
+    t.bigint "cloth_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cloth_id"], name: "index_types_on_cloth_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,8 +79,9 @@ ActiveRecord::Schema.define(version: 2020_04_13_114513) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "cloths", "colors"
   add_foreign_key "cloths", "shelves"
-  add_foreign_key "cloths", "types"
-  add_foreign_key "cloths", "users"
+  add_foreign_key "colors", "cloths"
+  add_foreign_key "shelves", "shops"
+  add_foreign_key "shops", "users"
+  add_foreign_key "types", "cloths"
 end

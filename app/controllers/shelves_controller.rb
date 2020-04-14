@@ -8,6 +8,7 @@ class ShelvesController < ApplicationController
   def create
     @shelf = Shelf.new(shelf_params)
     authorize(@shelf)
+    @shelf.shop = Shop.find_by user_id: current_user.id
     if @shelf.save
       redirect_to managment_main_path
     else

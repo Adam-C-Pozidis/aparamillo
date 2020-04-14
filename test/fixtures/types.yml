@@ -2,6 +2,8 @@
 
 one:
   name: MyString
+  cloth: one
 
 two:
   name: MyString
+  cloth: two

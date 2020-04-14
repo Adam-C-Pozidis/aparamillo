@@ -1,3 +1,3 @@
 class Type < ApplicationRecord
-  has_many :cloths
+  belongs_to :cloth
 end

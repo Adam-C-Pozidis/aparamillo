@@ -1,25 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type: one
-  color: one
-  user: one
-  shelf: one
   category: MyString
   wash_type: MyString
   delivery: false
-  price: 1.5
   completed: false
-  pick_up_date: 2020-04-06
+  pick_up_date: 2020-04-14
+  price: 1.5
+  Shelf: one
 
 two:
-  type: two
-  color: two
-  user: two
-  shelf: two
   category: MyString
   wash_type: MyString
   delivery: false
-  price: 1.5
   completed: false
-  pick_up_date: 2020-04-06
+  pick_up_date: 2020-04-14
+  price: 1.5
+  Shelf: two

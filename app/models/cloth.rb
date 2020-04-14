@@ -1,6 +1,5 @@
 class Cloth < ApplicationRecord
-  belongs_to :type
-  belongs_to :color
-  belongs_to :user
   belongs_to :shelf
+  has_many :colors
+  has_many :types
 end

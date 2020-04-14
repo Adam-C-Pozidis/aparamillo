@@ -2,8 +2,12 @@
 
 one:
   name: MyString
-  Shop: one
+  address: MyString
+  phone: MyString
+  user: one
 
 two:
   name: MyString
-  Shop: two
+  address: MyString
+  phone: MyString
+  user: two
