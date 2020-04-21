@@ -8,6 +8,8 @@ class CreateCloths < ActiveRecord::Migration[6.0]
       t.date :pick_up_date
       t.float :price
       t.references :shelf, null: false, foreign_key: true
+      t.references :type, null: false, foreign_key: true
+      t.references :color, null: false, foreign_key: true
 
       t.timestamps
     end

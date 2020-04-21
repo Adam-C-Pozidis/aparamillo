@@ -1,0 +1,6 @@
+<%= simple_form_for @shop do |f| %>
+  <%= f.input :name, label: "Όνομα καταστήματος" %>
+  <%= f.input :address, label: "Διεύθυση" %>
+  <%= f.input :phone, label: "Τηλέφωνο" %>
+  <%= f.button :submit, "Δημιουργία νέου καταστήματος", class: "btn btn-primary" %>
+<% end %>

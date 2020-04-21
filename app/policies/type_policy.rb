@@ -1,4 +1,4 @@
-class ColorPolicy < ApplicationPolicy
+class TypePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -20,5 +20,4 @@ class ColorPolicy < ApplicationPolicy
   def create?
     new?
   end
-
 end

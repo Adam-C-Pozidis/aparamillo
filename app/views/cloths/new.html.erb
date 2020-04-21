@@ -1,11 +1,9 @@
 <%= simple_form_for @cloth do |f| %>
   <div class="d-flex flex-column">
-    <%= f.label "Πελάτης"%>
-    <%= f.association :user, label: false %>
     <%= f.label "Είδος" %>
-    <%= f.association :type, label: false %>
+    <%= f.input :type, collection: Type.all, label: false %>
     <%= f.label "Χρώμα" %>
-    <%= f.association :color, label: false %>
+    <%= f.input :color, collection: Color.all, label: false %>
     <%= f.label "Ράφι" %>
     <%= f.association :shelf, label: false %>
   </div>

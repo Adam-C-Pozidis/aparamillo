@@ -8,7 +8,7 @@ class ColorsController < ApplicationController
   def create
     @color = Color.new(color_params)
     authorize(@color)
-    if @color.save
+    if @color.save!
       redirect_to managment_main_path
     else
       render "colors/new"
@@ -19,7 +19,7 @@ class ColorsController < ApplicationController
     @color = Color.find(params[:id])
     authorize(@color)
     @color.update(color_params)
-    redirect_to managments_path
+    redirect_to managment_main_path
   end
 
   private

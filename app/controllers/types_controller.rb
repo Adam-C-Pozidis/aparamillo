@@ -1,4 +1,5 @@
 class TypesController < ApplicationController
+
   def new
     @type = Type.new
     authorize(@type)
@@ -7,10 +8,10 @@ class TypesController < ApplicationController
   def create
     @type = Type.new(type_params)
     authorize(@type)
-    if @type.save
+    if @type.save!
       redirect_to managment_main_path
     else
-      render "managments/main"
+      render "types/new"
     end
   end
 
@@ -18,7 +19,7 @@ class TypesController < ApplicationController
     @type = Type.find(params[:id])
     authorize(@type)
     @type.update(type_params)
-    redirect_to managments_path
+    redirect_to managment_main_path
   end
 
   private

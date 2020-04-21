@@ -1,3 +1,9 @@
-<% @shops.each do |shop| %>
-  <%=link_to shop.name , shop_path(shop)%>
+<% if @shops.empty? %>
+  <%= link_to 'Δημιουργία νέου καταστήματος', new_shop_path, class: "btn btn-primary" %>
+<% else %>
+  <% @shops.each do |shop| %>
+  <h1><%=link_to shop.name , shop_path(shop)%> </h1>
+  <br>
+  <%= link_to "Επεξεργασία", edit_shop_path(shop), class: "btn btn-primary" %>
+  <% end %>
 <% end %>

@@ -3,7 +3,7 @@ class ClothsController < ApplicationController
   before_action :set_cloth, except: %i[index new create]
 
   def index
-    @cloths = policy_scope(Cloth.where(user_id: current_user.id))
+    @cloths = policy_scope(Cloth.where(cloth.shelf.shop.user_id: current_user.id))
   end
 
   def show
@@ -12,6 +12,7 @@ class ClothsController < ApplicationController
 
   def new
     @cloth = Cloth.new
+    @customers =
     authorize(@cloth)
   end
 

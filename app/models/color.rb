@@ -1,3 +1,3 @@
 class Color < ApplicationRecord
-  belongs_to :cloth
+  has_many :cloths
 end

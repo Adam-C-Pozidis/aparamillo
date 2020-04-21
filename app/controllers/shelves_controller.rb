@@ -9,10 +9,10 @@ class ShelvesController < ApplicationController
     @shelf = Shelf.new(shelf_params)
     authorize(@shelf)
     @shelf.shop = Shop.find_by user_id: current_user.id
-    if @shelf.save
+    if @shelf.save!
       redirect_to managment_main_path
     else
-      render "managments/main"
+      render "shelves/new"
     end
   end
 
@@ -20,7 +20,7 @@ class ShelvesController < ApplicationController
     @shelf = Shelf.find(params[:id])
     authorize(@shelf)
     @shelf.update(shelf_params)
-    redirect_to managments_path
+    redirect_to managment_main_path
   end
 
   private
