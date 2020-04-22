@@ -18,18 +18,20 @@ ActiveRecord::Schema.define(version: 2020_04_14_110122) do
   create_table "cloths", force: :cascade do |t|
     t.string "category"
     t.string "wash_type"
-    t.boolean "delivery"
-    t.boolean "completed"
+    t.boolean "delivery", default: false
+    t.boolean "completed", default: false
     t.date "pick_up_date"
     t.float "price"
     t.bigint "shelf_id", null: false
     t.bigint "type_id", null: false
     t.bigint "color_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["color_id"], name: "index_cloths_on_color_id"
     t.index ["shelf_id"], name: "index_cloths_on_shelf_id"
     t.index ["type_id"], name: "index_cloths_on_type_id"
+    t.index ["user_id"], name: "index_cloths_on_user_id"
   end
 
   create_table "colors", force: :cascade do |t|
@@ -82,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_110122) do
   add_foreign_key "cloths", "colors"
   add_foreign_key "cloths", "shelves"
   add_foreign_key "cloths", "types"
+  add_foreign_key "cloths", "users"
   add_foreign_key "shelves", "shops"
   add_foreign_key "shops", "users"
 end
