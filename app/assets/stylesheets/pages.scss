@@ -1,3 +1,40 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.container-fuild {
+  background-color: #cccccc;
+  background-image: url("dry-clean-front-page-unsplash.jpg");
+  background-size: cover;
+}
+
+.header {
+  padding-top: 250px;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  font-size: 42px;
+  text-shadow: -1px -1px 3px gray;
+}
+
+.header-text {
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  text-shadow: -1px -1px 3px gray;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.box-container{
+    padding-top: 60px;
+    margin-top: 100px;
+}
+.box {
+  margin: 5px;
+  color: white;
+  height: 300px;
+  font-family: 'Roboto Slab', serif;
+  // border: 1px solid lightgray;
+  // border-radius: 5px;
+  // background-color: white;
+}

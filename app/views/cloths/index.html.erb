@@ -1,7 +1,10 @@
 <% unless @cloths.empty? %>
   <% @cloths.each do |cloth| %>
-    <%=cloth.user.email %>
-    <h3><%= cloth.type.name %></h3>
+    <%= link_to(cloth) do %>
+    <ul>
+      <li> <h3><%= cloth.user.first_name %> <%= cloth.user.last_name %>  <%= cloth.type.name %></h3></li>
+    </ul>
+    <% end %>
   <% end %>
 <% else %>
   <h2>Δεν υπάρχουν ρούχα αυτή τη στιγμή</h2>

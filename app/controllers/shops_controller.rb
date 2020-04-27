@@ -18,8 +18,11 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     authorize(@shop)
     @shop.user = current_user
+
     if @shop.save
       redirect_to shop_path(@shop)
+      current_user.shop = @shop
+      current_user.save
     else
       render 'shops/new'
     end

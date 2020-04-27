@@ -1,5 +1,9 @@
 class ShelvesController < ApplicationController
 
+  def index
+    @shelves = policy_scope(Shelf.where(shop_id: current_user.shop_id))
+  end
+  
   def new
     @shelf = Shelf.new
     authorize(@shelf)

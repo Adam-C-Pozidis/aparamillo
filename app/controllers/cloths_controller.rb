@@ -1,11 +1,9 @@
 class ClothsController < ApplicationController
-  #skip_before_action :authenticate_user!, only: :index
   before_action :set_cloth, except: %i[index new create]
 
   def index
-    raise
     if current_user.user_owner?
-      @cloths = policy_scope(Cloth.joins(:user).where(shops: {user_id: current_user.id}))
+      @cloths = policy_scope(Cloth.all)
     else
       @cloths = policy_scope(Cloth.where("user_id = ?", current_user.id))
     end
@@ -32,9 +30,11 @@ class ClothsController < ApplicationController
   end
 
   def update
+    @cloth.update(cloth_params)
   end
 
   def destroy
+    @cloth.destroy
   end
 
   private
