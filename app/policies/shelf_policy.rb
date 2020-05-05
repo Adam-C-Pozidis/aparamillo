@@ -6,12 +6,12 @@ class ShelfPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    user.user_owner?
   end
 
-  def index?
-    record.user == user
-  end
+  # def index?
+  #   record.user == user
+  # end
 
   def shop?
     new?

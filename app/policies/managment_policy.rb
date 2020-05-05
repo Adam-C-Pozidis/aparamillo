@@ -1,11 +1,11 @@
 class ManagmentPolicy < Struct.new(:user, :managment)
 
   def main?
-    true
+    user.user_owner?
   end
 
   def shop?
-    true
+    main?
   end
 
 end

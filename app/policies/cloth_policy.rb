@@ -6,7 +6,7 @@ class ClothPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    user.user_owner?
   end
 
   def create?
@@ -14,7 +14,7 @@ class ClothPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    user == record.user
   end
 
 end
