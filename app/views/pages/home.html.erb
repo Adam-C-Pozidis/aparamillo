@@ -9,23 +9,9 @@
   </div>
   <div class="box-container">
     <div class="col-0 col-sm-2 col-md-2 col-xl-2"></div>
-
-    <% if user_signed_in? %>
-      <div class="box col-12 col-sm-4 col-md-4 col-xl-4 text-center">
-        <% if current_user.shop_id == nil && current_user.user_owner? %>
-          <%= link_to "Δημιουργία καταστήματος", new_shop_path, class: "btn btn-lg btn-primary" %>
-        <% elsif current_user.user_owner? %>
-          <%= link_to "Προβολή ραφιών", shelves_path, class: "btn btn-lg btn-primary" %>
-          <%= link_to "Εισαγωγή ρούχου", new_cloth_path, class: "btn btn-lg btn-primary" %>
-        <% else %>
-          <%= link_to "Προβολή των ρούχων μου", cloths_path, class: "btn btn-lg btn-primary" %>
-        <% end %>
-      </div>
-      <div class="box col-12 col-sm-4 col-md-4 col-xl-4 text-center">
-        <%= link_to "Το κατάστημα μας", shop_path(current_user.shop), class: "btn btn-lg btn-primary" %>
-      </div>
-    <% end %>
-
+      <% if user_signed_in? %>
+        <%= render "singed_in_user" %>
+      <% end %>
     <div class="col-0 col-sm-2 col-md-2 col-xl-2"></div>
   </div>
 </div>

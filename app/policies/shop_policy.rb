@@ -6,7 +6,7 @@ class ShopPolicy < ApplicationPolicy
   end
 
   def show?
-    user.user_owner?
+    user.owner?
   end
 
   def new?

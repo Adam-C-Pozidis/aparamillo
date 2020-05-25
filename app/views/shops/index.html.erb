@@ -1,4 +1,4 @@
-<% if @shops.empty? && current_user.user_owner? %>
+<% if @shops.empty? && current_user.owner? %>
   <%= link_to 'Δημιουργία νέου καταστήματος', new_shop_path, class: "btn btn-primary" %>
 <% else %>
   <% @shops.each do |shop| %>

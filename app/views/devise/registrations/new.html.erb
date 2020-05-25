@@ -1,56 +1,57 @@
-<div class="container">
+<h2>Εγγραφή χρήστη</h2>
 
-  <h2>Εγγραφή χρήστη</h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+  <div class="field">
+    <%= f.label :Όνομα %><br />
+    <%= f.text_field :first_name %>
+  </div>
 
-    <div class="field">
-      <%= f.label :Όνομα %><br />
-      <%= f.text_field :first_name %>
-    </div>
+  <div class="field">
+    <%= f.label :Επίθετο %><br />
+    <%= f.text_field :last_name %>
+  </div>
 
-    <div class="field">
-      <%= f.label :Επίθετο %><br />
-      <%= f.text_field :last_name %>
-    </div>
+  <div class="field">
+    <%= f.label :Διεύθηνση %><br />
+    <%= f.text_field :address %>
+  </div>
 
-    <div class="field">
-      <%= f.label :Διεύθηνση %><br />
-      <%= f.text_field :address %>
-    </div>
+  <div class="field">
+    <%= f.label :Αριθμίος_τηλεφώνου %><br />
+    <%= f.text_field :phone %>
+  </div>
 
-    <div class="field">
-      <%= f.label :Αριθμίος_τηλεφώνου %><br />
-      <%= f.text_field :phone %>
-    </div>
-    <div class="field">
-      <%= f.label :Εγγραφή_ως_ιδιοκτήτης_καταστήματος %> <br>
-      <%= f.check_box :user_owner? %>
-    </div>
+  <br>
 
-    <div class="field">
-      <%= f.label :Κωδικός %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
+  <div class="field">
+    <%= f.label :Επιλογή_καταστήματος %><br>
+    <%= f.select :shop_id, Shop.pluck(:name), :include_blank => true %>
+  </div>
+  <br>
 
-    <div class="field">
-      <%= f.label :Επανάληψη_κωδικού %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
+  <div class="field">
+    <%= f.label :Κωδικός %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> χαρακτήρες ελάχιστο)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
 
-    <div class="actions">
-      <%= f.submit "Εγγραφή" %>
-    </div>
-  <% end %>
+  <div class="field">
+    <%= f.label :Επανάληψη_κωδικού %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
 
-  <%= render "devise/shared/links" %>
-</div>
+  <div class="actions">
+    <%= f.submit "Εγγραφή" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

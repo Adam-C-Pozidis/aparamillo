@@ -7,6 +7,9 @@
     <%= f.label "Ράφι" %>
     <%= f.association :shelf, label: false %>
   </div>
+  <div class="field">
+    <%= f.select :user_id, User.where(shop_id: current_user.shop_id).pluck(:last_name) %>
+  </div>
 
   <div class="d-flex justify-content-between">
     <%= f.input :category, collection: ["Ανδρικό", "Γυναικείο", "Παιδικό"], label: "Κατηγορία"%> <br><br>

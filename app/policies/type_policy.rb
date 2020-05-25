@@ -6,7 +6,7 @@ class TypePolicy < ApplicationPolicy
   end
 
   def new?
-    user.user_owner?
+    user.owner?
   end
 
   # def index?

@@ -2,7 +2,7 @@ class ClothsController < ApplicationController
   before_action :set_cloth, except: %i[index new create]
 
   def index
-    if current_user.user_owner?
+    if current_user.owner?
       @cloths = policy_scope(Cloth.all)
     else
       @cloths = policy_scope(Cloth.where("user_id = ?", current_user.id))

@@ -6,7 +6,7 @@ class ClothPolicy < ApplicationPolicy
   end
 
   def new?
-    user.user_owner?
+    user.owner?
   end
 
   def create?
