@@ -3,7 +3,8 @@ class ClothsController < ApplicationController
 
   def index
     if current_user.owner?
-      @cloths = policy_scope(Cloth.all)
+      @cloths = policy_scope(Cloth.where("shelf_id = ?", current_user.shop.shelf_ids))
+      # raise
     else
       @cloths = policy_scope(Cloth.where("user_id = ?", current_user.id))
     end

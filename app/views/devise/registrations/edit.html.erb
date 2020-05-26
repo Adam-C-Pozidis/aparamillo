@@ -7,6 +7,34 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+  
+  <div class="field">
+    <%= f.label :Όνομα %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Επίθετο %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Διεύθηνση %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Αριθμίος_τηλεφώνου %><br />
+    <%= f.text_field :phone %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= f.label :Επιλογή_καταστήματος %><br>
+    <%= f.select :shop_id, Shop.pluck(:name), :include_blank => true %>
+  </div>
+  <br>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

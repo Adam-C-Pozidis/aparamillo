@@ -1,5 +1,6 @@
 <h1><%= @shop.name %></h1>
 <h3><%= @shop.user.first_name %> <%= @shop.user.last_name %></h3>
 <h3><%= @shop.address %></h3>
+<h3><%= @shop.city %></h3>
 <h3><%= @shop.phone %></h3> <br>
 <%= link_to "Επεξεργασία", edit_shop_path(@shop), class: "btn btn-primary" %>

@@ -32,7 +32,7 @@
 
   <div class="field">
     <%= f.label :Επιλογή_καταστήματος %><br>
-    <%= f.select :shop_id, Shop.pluck(:name), :include_blank => true %>
+    <%= f.select :shop_id, Shop.pluck(:name, :id), :include_blank => true %>
   </div>
   <br>
 
