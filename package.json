@@ -10,7 +10,8 @@
     "jquery": "^3.5.0",
     "license": "0000",
     "popper.js": "^1.16.1",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "update": "^0.7.4"
   },
   "version": "0.1.0",
   "devDependencies": {
